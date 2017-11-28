@@ -5,9 +5,9 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={{alignItems: 'center'}}>
-        <Greetings name='Rahul' />
-        <Greetings name='Sapna' />
-        <Greetings name='Prabal' />
+        <Greetings name='Rahul' style={styles.bigblue}/>
+        <Greetings name='Sapna' style={styles.red}/>
+        <Greetings name='Prabal' style={styles.bigblue}/>
       </View>
     );
   }
@@ -28,8 +28,18 @@ class Greetings extends React.Component {
   render() {
     const display = this.state.showText ? `Hello ${this.props.name}!` : '';
     return (
-      <Text>{display}</Text>
+      <Text style={this.props.style}>{display}</Text>
     );
   }
 }
 
+const styles = StyleSheet.create({
+  bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  red: {
+    color: 'red',
+  },
+});
