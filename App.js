@@ -14,9 +14,21 @@ export default class App extends React.Component {
 }
 
 class Greetings extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { showText: true };
+
+
+    setInterval(() => {
+      this.setState(previousState => {
+        return { showText: !previousState.showText };
+      });
+    }, 1000);
+  }
   render() {
+    const display = this.state.showText ? `Hello ${this.props.name}!` : '';
     return (
-      <Text>Hello {this.props.name}!</Text>
+      <Text>{display}</Text>
     );
   }
 }
