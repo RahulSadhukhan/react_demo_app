@@ -4,10 +4,10 @@ import { StyleSheet, Text, Image, View } from 'react-native';
 export default class App extends React.Component {
   render() {
     return (
-      <View style={{alignItems: 'center'}}>
-        <Greetings name='Rahul' style={styles.bigblue}/>
-        <Greetings name='Sapna' style={styles.red}/>
-        <Greetings name='Prabal' style={styles.bigblue}/>
+      <View style={styles.parentBlock}>
+        <View style={styles.block1}/>
+        <View style={styles.block2}/>
+        <View style={styles.block3}/>
       </View>
     );
   }
@@ -34,12 +34,25 @@ class Greetings extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  bigblue: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30,
+  parentBlock: {
+    flex: 1,
   },
-  red: {
-    color: 'red',
+  block1: {
+    // width: 50,
+    // height: 50,
+    flex: 1,
+    backgroundColor: 'powderblue',
   },
+  block2: {
+    // width: 100,
+    // height: 100,
+    flex: 2,
+    backgroundColor: 'skyblue',
+  },
+  block3: {
+    // width: 150,
+    // height: 150,
+    flex: 3,
+    backgroundColor: 'steelblue',
+  }
 });
