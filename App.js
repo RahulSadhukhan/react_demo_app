@@ -36,23 +36,26 @@ class Greetings extends React.Component {
 const styles = StyleSheet.create({
   parentBlock: {
     flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-end'
   },
   block1: {
-    // width: 50,
-    // height: 50,
-    flex: 1,
+    width: 50,
+    height: 50,
+    // flex: 1,
     backgroundColor: 'powderblue',
   },
   block2: {
-    // width: 100,
-    // height: 100,
-    flex: 2,
+    width: 50,
+    height: 50,
+    // flex: 2,
     backgroundColor: 'skyblue',
   },
   block3: {
-    // width: 150,
-    // height: 150,
-    flex: 3,
+    width: 50,
+    height: 50,
+    // flex: 3,
     backgroundColor: 'steelblue',
   }
 });
