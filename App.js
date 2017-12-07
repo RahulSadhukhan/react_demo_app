@@ -1,32 +1,36 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View } from 'react-native';
+import { StyleSheet, Text, Image, View, TextInput, Button } from 'react-native';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { text: '', toggleText: false };
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+  }
+
+  handleButtonClick() {
+    this.setState(prevState => ({ toggleText: !prevState.toggleText }));
+  }
+
   render() {
     return (
-      <View style={styles.parentBlock}>
-        <View style={styles.block1}/>
-        <View style={styles.block2}/>
-        <View style={styles.block3}/>
+      <View style={{padding: 20}}>
+        <TextInput
+          style={{height: 40}}
+          placeholder="Type here to translate!"
+          onChangeText={(text) => this.setState({text})}
+        />
+        <Button onPress={this.handleButtonClick} title="Toggle text" />
+
+        <Greetings showText={this.state.toggleText} text={this.state.text} />
       </View>
     );
   }
 }
 
 class Greetings extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { showText: true };
-
-
-    setInterval(() => {
-      this.setState(previousState => {
-        return { showText: !previousState.showText };
-      });
-    }, 1000);
-  }
   render() {
-    const display = this.state.showText ? `Hello ${this.props.name}!` : '';
+    const display = this.props.showText ? this.props.text : '';
     return (
       <Text style={this.props.style}>{display}</Text>
     );
